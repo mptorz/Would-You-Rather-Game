@@ -28,7 +28,7 @@ class App extends Component {
       <Route exact path="/" component={Main} />
       <Route exact path="/add" component={AddQuestion} />
       <Route exact path="/leaderboard" component={Leaderboard} />
-      <Route exact path="/questions/:questionId" component={QuestionWrapper} />
+      <Route exact path="/questions/:qid" component={QuestionWrapper} />
       <Redirect from="*" to="/" />
     </Switch>
   );

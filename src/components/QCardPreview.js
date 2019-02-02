@@ -21,7 +21,7 @@ const QCardPreview = props => {
             {answered ? 'See Details' : 'Vote'}
           </Link>
         }
-        style={{ width: 300 }}
+        style={{ width: 400 }}
       >
         <h3>Would you rather?</h3>
         <div>

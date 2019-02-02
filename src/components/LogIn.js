@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Select, Button } from 'antd';
+import { Select, Button, message } from 'antd';
 import { setSignedUser } from '../actions/index';
-
-const { Option } = Select;
 
 class LogIn extends Component {
   state = {
@@ -12,7 +10,7 @@ class LogIn extends Component {
 
   handleOnClick = () => {
     if (this.state.selectedUser === '') {
-      alert('Error! You must select a user to sign in');
+      message.error('Error! You must select a user to sign in');
     } else {
       this.props.dispatch(setSignedUser(this.state.selectedUser));
     }
@@ -20,6 +18,7 @@ class LogIn extends Component {
 
   render() {
     const { users } = this.props;
+    const { Option } = Select;
 
     return (
       <div>
