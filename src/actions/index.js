@@ -6,6 +6,7 @@ export const VOTE = 'VOTE';
 export const LOAD_USERS = 'LOAD_USERS';
 export const LOAD_QUESTIONS = 'LOAD_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
+export const CHANGE_TAB = 'CHANGE_TAB';
 
 export function setSignedUser(id) {
   return {
@@ -76,5 +77,12 @@ export function handleAddQuestion(question) {
   return async dispatch => {
     const toDispatch = await API._saveQuestion(question);
     dispatch(addQuestion(toDispatch));
+  };
+}
+
+export function changeTab(tab = 'home') {
+  return {
+    type: CHANGE_TAB,
+    tab,
   };
 }

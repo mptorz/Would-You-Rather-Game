@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Tabs } from 'antd';
 import { connect } from 'react-redux';
-import QCardPreview from './QCardPreview';
 import QuestionList from './QuestionList';
 
 const Main = props => {

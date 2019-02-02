@@ -58,7 +58,9 @@ export default props => {
                             (item.votes / item.totalVotes) * 100
                           )}
                         />
-                        <span>{`    (${item.votes}/${item.totalVotes})`}</span>
+                        <span>{`           (${item.votes}/${
+                          item.totalVotes
+                        })`}</span>
                       </div>
                       <div>{item.tie ? <b>It is a TIE</b> : item.winner()}</div>
                     </div>

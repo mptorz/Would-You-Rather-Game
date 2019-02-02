@@ -3,15 +3,11 @@ import { Menu, Icon } from 'antd';
 import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logOut } from '../actions';
+import { logOut, changeTab } from '../actions';
 
 const { SubMenu } = Menu;
 
 class Navigation extends Component {
-  state = {
-    current: 'home',
-  };
-
   getUserName = () => {
     return 'Mikolaj Torz';
   };
@@ -21,11 +17,11 @@ class Navigation extends Component {
   };
 
   render() {
-    const { signedIn, userName } = this.props;
+    const { signedIn, userName, tab, dispatch } = this.props;
     return (
       <Menu
-        selectedKeys={[this.state.current]}
-        onClick={e => this.setState({ current: e.key })}
+        selectedKeys={[tab]}
+        onClick={e => dispatch(changeTab(e.key))}
         mode="horizontal"
       >
         <Menu.Item key="home">
@@ -67,10 +63,11 @@ class Navigation extends Component {
   }
 }
 
-const mapStateToProps = ({ users, signedUser }) => {
+const mapStateToProps = ({ users, signedUser, navigation }) => {
   return {
     signedIn: signedUser,
     userName: users[signedUser] ? users[signedUser].name : null,
+    tab: navigation,
   };
 };
 

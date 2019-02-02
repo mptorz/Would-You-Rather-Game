@@ -12,8 +12,8 @@ import LogIn from './LogIn';
 
 class App extends Component {
   componentDidMount() {
-    this.props.getUserData(handleLoadUsers);
-    this.props.getQuestionData(handleLoadQuestions);
+    this.props.dispatch(handleLoadUsers());
+    this.props.dispatch(handleLoadQuestions());
   }
 
   signedOutRoutes = () => (
@@ -53,14 +53,14 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getUserData: () => dispatch(handleLoadUsers()),
-    getQuestionData: () => dispatch(handleLoadQuestions()),
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getUserData: () => dispatch(handleLoadUsers()),
+//     getQuestionData: () => dispatch(handleLoadQuestions()),
+//   };
+// };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
+  // mapDispatchToProps
 )(App);
