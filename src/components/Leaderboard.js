@@ -5,7 +5,12 @@ import { List, Avatar } from 'antd';
 const Leaderboard = props => {
   return (
     <div
-      style={{ flexDirection: 'column', display: 'flex', alignItems: 'center' }}
+      style={{
+        flexDirection: 'column',
+        display: 'flex',
+        alignItems: 'center',
+        margin: 50,
+      }}
     >
       <List
         style={{ width: 500 }}

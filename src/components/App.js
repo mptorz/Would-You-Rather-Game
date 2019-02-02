@@ -12,8 +12,9 @@ import LogIn from './LogIn';
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleLoadUsers());
-    this.props.dispatch(handleLoadQuestions());
+    const { dispatch } = this.props;
+    dispatch(handleLoadUsers());
+    dispatch(handleLoadQuestions());
   }
 
   signedOutRoutes = () => (
@@ -34,33 +35,22 @@ class App extends Component {
   );
 
   render() {
+    const { askToLogin } = this.props;
     return (
       <BrowserRouter>
         <div className="App">
           <Navigation />
-          {this.props.askToLogin
-            ? this.signedOutRoutes()
-            : this.signedInRoutes()}
+          {askToLogin ? this.signedOutRoutes() : this.signedInRoutes()}
         </div>
       </BrowserRouter>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ signedUser }) => {
   return {
-    askToLogin: state.signedUser === null,
+    askToLogin: signedUser === null,
   };
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     getUserData: () => dispatch(handleLoadUsers()),
-//     getQuestionData: () => dispatch(handleLoadQuestions()),
-//   };
-// };
-
-export default connect(
-  mapStateToProps
-  // mapDispatchToProps
-)(App);
+export default connect(mapStateToProps)(App);

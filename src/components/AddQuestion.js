@@ -80,7 +80,6 @@ class AddQuestion extends Component {
           >
             Add Question
           </Button>
-          {JSON.stringify(this.state)}
         </div>
       </div>
     );

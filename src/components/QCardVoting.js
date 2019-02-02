@@ -68,7 +68,6 @@ class QCardVoting extends Component {
           </div>
           <Button onClick={() => this.handleVote()}>VOTE</Button>
         </Card>
-        {JSON.stringify(this.state)}
       </div>
     );
   }
