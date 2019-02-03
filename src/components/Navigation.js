@@ -3,7 +3,7 @@ import { Menu, Icon } from 'antd';
 import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logOut, changeTab } from '../actions';
+import { logOut } from '../actions';
 
 const { SubMenu } = Menu;
 

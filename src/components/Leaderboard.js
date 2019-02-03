@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { List, Avatar } from 'antd';
+import { List, Avatar, message } from 'antd';
 import { changeTab } from '../actions';
 
 class Leaderboard extends Component {
   componentDidMount() {
-    const { dispatch } = this.props;
+    const { dispatch, users, signedUser } = this.props;
     dispatch(changeTab('leaderboard'));
+    if (signedUser === users[0].id) {
+      message.success('Congratulations! You are currently the best 👏', 2);
+    }
   }
 
   render() {
@@ -44,14 +47,14 @@ class Leaderboard extends Component {
   }
 }
 
-const mapStateToProps = ({ users }) => {
+const mapStateToProps = ({ users, signedUser }) => {
   const usersWithScore = Object.values(users).map(user =>
     Object.assign(user, {
       score: Object.keys(user.answers).length + user.questions.length,
     })
   );
   const usersSorted = usersWithScore.sort((a, b) => b.score - a.score);
-  return { users: usersSorted };
+  return { users: usersSorted, signedUser };
 };
 
 export default connect(mapStateToProps)(Leaderboard);

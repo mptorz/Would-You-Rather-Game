@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { message } from 'antd';
-import { Redirect } from 'react-router-dom';
 import QCardResults from './QCardResults';
 import QCardVoting from './QCardVoting';
 
