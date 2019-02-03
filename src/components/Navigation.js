@@ -12,18 +12,15 @@ class Navigation extends Component {
     return 'Mikolaj Torz';
   };
 
-  logout = () => {
-    this.props.dispatch(logOut());
+  signOut = () => {
+    const { dispatch } = this.props;
+    dispatch(logOut());
   };
 
   render() {
-    const { signedIn, userName, tab, dispatch } = this.props;
+    const { signedIn, userName, tab } = this.props;
     return (
-      <Menu
-        selectedKeys={[tab]}
-        onClick={e => dispatch(changeTab(e.key))}
-        mode="horizontal"
-      >
+      <Menu selectedKeys={[tab]} mode="horizontal">
         <Menu.Item key="home">
           <Link to="/">
             <Icon type="home" />
@@ -52,9 +49,11 @@ class Navigation extends Component {
               </span>
             }
           >
-            <Menu.Item onClick={() => this.logout()} key="user">
-              <Icon type="user" />
-              Log Out
+            <Menu.Item onClick={() => this.signOut()} key="user">
+              <Link to="/">
+                <Icon type="user" />
+                Log Out
+              </Link>
             </Menu.Item>
           </SubMenu>
         )}

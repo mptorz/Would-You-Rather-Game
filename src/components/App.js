@@ -9,6 +9,7 @@ import Leaderboard from './Leaderboard';
 import QuestionWrapper from './QuestionWrapper';
 import { handleLoadUsers, handleLoadQuestions } from '../actions/index';
 import LogIn from './LogIn';
+import PageNotFound from './PageNotFound';
 
 class App extends Component {
   componentDidMount() {
@@ -19,8 +20,7 @@ class App extends Component {
 
   signedOutRoutes = () => (
     <Switch>
-      <Route exact path="/" component={LogIn} />
-      <Redirect from="*" to="/" />
+      <Route component={LogIn} />
     </Switch>
   );
 
@@ -30,7 +30,7 @@ class App extends Component {
       <Route exact path="/add" component={AddQuestion} />
       <Route exact path="/leaderboard" component={Leaderboard} />
       <Route exact path="/questions/:qid" component={QuestionWrapper} />
-      <Redirect from="*" to="/" />
+      <Route component={PageNotFound} />
     </Switch>
   );
 

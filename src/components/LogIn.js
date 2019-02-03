@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Select, Button, message } from 'antd';
-import { setSignedUser } from '../actions/index';
+import { setSignedUser, changeTab } from '../actions/index';
 
 class LogIn extends Component {
   state = {
     selectedUser: '',
   };
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(changeTab('home'));
+  }
 
   handleOnClick = () => {
     if (this.state.selectedUser === '') {

@@ -13,6 +13,11 @@ class AddQuestion extends Component {
     goBack: false,
   };
 
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(changeTab('add'));
+  }
+
   handleChangeOne = e => {
     if (e === '') {
       this.setState({ optionOne: e, disableButtonOne: true });

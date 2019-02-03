@@ -9,7 +9,7 @@ const QuestionWrapper = props => {
   const { author, question, answered, chosenOptionOne, notFound } = props;
 
   const renderError = () => (
-    <div>
+    <div style={{ margin: 20 }}>
       <h1>QUESTION NOT FOUND SORRY</h1>
     </div>
   );
